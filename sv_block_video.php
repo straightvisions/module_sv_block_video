@@ -37,6 +37,54 @@
 				->set_is_responsive(true)
 				->load_type( 'border' );
 
+			// figcaption
+			$this->get_setting( 'figcaption_font' )
+				->set_title( __( 'Font Family', 'sv100' ) )
+				->set_description( __( 'Choose a font for your text.', 'sv100' ) )
+				->set_options( $this->get_module( 'sv_webfontloader' ) ? $this->get_module( 'sv_webfontloader' )->get_font_options() : array('' => __('Please activate module SV Webfontloader for this Feature.', 'sv100')) )
+				->set_is_responsive(true)
+				->load_type( 'select' );
+
+			$this->get_setting( 'figcaption_font_size' )
+				->set_title( __( 'Font Size', 'sv100' ) )
+				->set_description( __( 'Font Size in Pixel', 'sv100' ) )
+				->set_default_value( $this->get_module( 'sv_common' ) ? $this->get_module( 'sv_common' )->get_setting('font_size')->get_data() : false )
+				->set_is_responsive(true)
+				->load_type( 'number' );
+
+			$this->get_setting( 'figcaption_line_height' )
+				->set_title( __( 'Line Height', 'sv100' ) )
+				->set_description( __( 'Set line height as multiplier or with a unit.', 'sv100' ) )
+				->set_is_responsive(true)
+				->load_type( 'text' );
+
+			$this->get_setting( 'figcaption_text_color' )
+				->set_title( __( 'Text Color', 'sv100' ) )
+				->set_default_value( '30,30,30,1' )
+				->set_is_responsive(true)
+				->load_type( 'color' );
+
+			$this->get_setting( 'figcaption_margin' )
+				->set_title( __( 'Margin', 'sv100' ) )
+				->set_is_responsive(true)
+				->set_default_value(array(
+					'top'		=> '10px',
+					'right'		=> 'auto', // could be wrong
+					'bottom'	=> '20px',
+					'left'		=> 'auto' // could be wrong
+				))
+				->load_type( 'margin' );
+
+			$this->get_setting( 'figcaption_padding' )
+				->set_title( __( 'Padding', 'sv100' ) )
+				->set_is_responsive(true)
+				->load_type( 'margin' );
+
+			$this->get_setting( 'figcaption_border' )
+				->set_title( __( 'Border', 'sv100' ) )
+				->set_is_responsive(true)
+				->load_type( 'border' );
+
 			return $this;
 		}
 		public function enqueue_scripts(): sv_block_video {

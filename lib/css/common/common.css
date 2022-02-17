@@ -3,5 +3,5 @@
 }
 /* @todo: make this a setting */
 .wp-block-video figcaption{
-	line-height:1.6;
+	text-align:center;
 }
